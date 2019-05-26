@@ -7,7 +7,7 @@ const watsonAssistantConfig = {
 
 const redisDBConfig = {
     port: 6379,
-    host: '',
+    host: 'localhost',
     destroy: 600 //in seconds
 }
 
