@@ -1,0 +1,28 @@
+version: '3.5'
+
+services:
+
+  redisdb:
+    image: redis
+    ports:
+      - "6379:6379"
+    container_name: redisdb
+    network_mode: bridge
+
+  api-watson-assistant:
+    build:
+      context: .
+      dockerfile: dockerfile
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      - "redisdb"
+    links:
+      - redisdb
+    image: api-watson-assistant
+    container_name: api-watson-assistant
+    network_mode: bridge
+
