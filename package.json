@@ -22,7 +22,7 @@
     "@hapi/hapi": "^18.3.1",
     "@hapi/inert": "^5.2.0",
     "@hapi/vision": "^5.5.2",
-    "hapi-swagger": "^10.0.0-alpha.5",
+    "hapi-swagger": "^10.0.2",
     "joi": "^14.3.1",
     "redis": "^2.8.0",
     "watson-developer-cloud": "^3.18.1"
