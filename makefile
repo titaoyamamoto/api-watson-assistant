@@ -1,11 +1,11 @@
 up:
-	docker-compose up -d
+	docker-compose up
 
 down:
 	docker-compose down
 	docker rmi 'redis'
-	docker rmi 'node'
 	docker rmi 'api-watson-assistant'
+	docker rmi 'node:alpine'
 
 redisdb:
 	docker-compose up -d redisdb
