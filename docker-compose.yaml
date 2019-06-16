@@ -7,7 +7,8 @@ services:
     ports:
       - "6379:6379"
     container_name: redisdb
-    network_mode: bridge
+    networks: 
+      - api-network-driver
 
   api-watson-assistant:
     build:
@@ -20,9 +21,11 @@ services:
       - "3000:3000"
     depends_on:
       - redisdb
-    links:
-      - redisdb
     image: api-watson-assistant
     container_name: api-watson-assistant
-    network_mode: bridge
+    networks: 
+      - api-network-driver
 
+networks:
+  api-network-driver:
+     name: api-network-driver
