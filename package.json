@@ -24,8 +24,8 @@
     "@hapi/joi": "^15.0.3",
     "@hapi/vision": "^5.5.2",
     "hapi-swagger": "^10.0.2",
-    "redis": "^2.8.0",
-    "watson-developer-cloud": "^3.18.1"
+    "ibm-watson": "^4.2.1",
+    "redis": "^2.8.0"
   },
   "bugs": {
     "url": "https://github.com/titaoyamamoto/api-watson-assistant/issues"

@@ -1,5 +1,5 @@
 const watsonAssistant = require('./../../../services/watson/assistant');
-const contextCtrl = require('./../../../services/store/redisdb');
+const cache = require('./../../../services/store/redisdb');
 
 const errorMessage = 'Desculpe, não consegui processar sua solicitação.';
 
@@ -13,7 +13,7 @@ const message = async (request, reply) => {
         console.log(`- user: ${user}`);
         console.log(`- message: ${message}`);
 
-        const context = JSON.parse(await contextCtrl.getByKey(user));
+        const context = JSON.parse(await cache.getByKey(user));
         console.log(`- context: ${JSON.stringify(context)}`);
 
         let chatbotMessage = await watsonAssistant.sendMessage(message, context);
@@ -22,7 +22,7 @@ const message = async (request, reply) => {
         if (!chatbotMessage.output.context) { //dont has the context object
 
             if (!chatbotMessage.context.system.branch_exited) //if dialog continue, store the context 
-                await contextCtrl.setByKey(user, chatbotMessage.context);
+                await cache.setByKey(user, chatbotMessage.context);
 
             return reply.response(
                 {
@@ -31,7 +31,7 @@ const message = async (request, reply) => {
                 }).code(200);
 
         }else {
-            await contextCtrl.delByKey(user); //if has the context object, remove stored context 
+            await cache.delByKey(user); //if has the context object, remove stored context 
         }
 
         //TODO flows and process here!
