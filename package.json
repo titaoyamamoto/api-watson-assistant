@@ -4,7 +4,7 @@
   "description": "API to Watson assistant",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,8 +30,5 @@
   "bugs": {
     "url": "https://github.com/titaoyamamoto/api-watson-assistant/issues"
   },
-  "homepage": "https://github.com/titaoyamamoto/api-watson-assistant#readme",
-  "devDependencies": {
-    "nodemon": "^1.19.1"
-  }
+  "homepage": "https://github.com/titaoyamamoto/api-watson-assistant#readme"
 }
